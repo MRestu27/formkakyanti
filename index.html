@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <form name="submit-to-google-sheet">
+      <!--Tanggal-->
+      <div class="form-group">
+        <label for="formGroupExampleInput">Tanggal Order</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tanggal Order" name="Tanggal" />
+      </div>
+      <!--Nama Csl-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Nama Cs</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nama CS" name="Nama Cs" />
+      </div>
+      <!--Nama Pembeli-->
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nama Pembeli</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama Pembeli" name="Nama Pembeli" />
+      </div>
+      <!--No HP-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">No HP</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="No Hp pembeli" name="No. HP" />
+      </div>
+      <!--Barang-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Nama Barang</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nama Barang" name="Nama Barang" />
+      </div>
+      <!--Harga Tas-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Harga Tas</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Harga Tas" name="Harga Tas" />
+      </div>
+      <!--Ongkir-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Harga Ongkir</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Harga Ongkir" name="Ongkir" />
+      </div>
+      <!--Ekspedisi-->
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Harga Ekspedisi</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Harga Ekspedisi" name="Ekspedisi" />
+      </div>
+      <!--Alamat-->
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Alamat</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Alamat"></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Primary</button>
+    </form>
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzLbhzullz4pWxnACZlm2YJqb3UYplfW62Au0ivtGexf9rGsNWwffKk8R3O_6lOAtfF/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
